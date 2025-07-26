@@ -17,7 +17,7 @@ const Sidebar = () => {
   ]
 
   return (
-    <aside className="fixed top-0 left-0 h-full w-64 p-4 z-50 hidden lg:flex flex-col glass-container  bg-black/30">
+    <aside className="fixed top-0 left-0 h-full w-64 p-4 z-50 hidden lg:flex flex-col glass-container  bg-black/60">
       <Link href={user ? "/dashboard" : "/"} className="flex items-center gap-2 mb-10 p-2">
         <Rocket className="text-purple-400" size={28}/>
         <h1 className="text-2xl font-bold font-orbitron">PitchPro</h1>
