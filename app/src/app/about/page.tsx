@@ -1,7 +1,6 @@
 'use client'
 
 import { Rocket, Users, ThumbsUp } from 'lucide-react'
-import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import Sidebar from '@/components/ui/Sidebar'
 import { Globe, BookOpen, Languages, Database, Check, AlertCircle, ExternalLink, Sparkles, Brain, Zap, ArrowRight, FileText, Lightbulb, Wand2, RotateCw } from 'lucide-react'

@@ -1,10 +1,19 @@
+// FILE: app/api/translate/route.ts
 import { NextResponse } from 'next/server';
+import { translateToUrdu } from '@/lib/translate';
 
 export async function POST(req: Request) {
-  const { pitch, targetLang } = await req.json();
+  try {
+    const { pitch, targetLang } = await req.json();
 
-  // Fake translation (replace with real API like Google Translate if needed)
-  const translated = `یہ اردو ترجمہ ہے: ${pitch}`;
+    if (!pitch || targetLang !== 'ur') {
+      return NextResponse.json({ message: 'Invalid input' }, { status: 400 });
+    }
 
-  return NextResponse.json({ translated });
+    const translatedText = await translateToUrdu(pitch);
+    return NextResponse.json({ translated: translatedText });
+  } catch (error) {
+    console.error('API Error:', error);
+    return NextResponse.json({ message: 'Translation failed' }, { status: 500 });
+  }
 }
