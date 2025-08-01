@@ -59,7 +59,7 @@ export default function LoginPage() {
     if (error) {
       toast.error("Authentication Error: " + error.message);
     } else {
-      toast.success("Access Link Transmitted", {
+      toast.success("Access Link Transmitted 🚀", {
         description: "Check your inbox for the secure magic link.",
       });
     }

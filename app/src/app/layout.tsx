@@ -6,7 +6,7 @@ import { AuthProvider } from "../providers/AuthProvider";
 import Sidebar from "@/components/ui/Sidebar";
 
 // Fonts
-import { Orbitron } from "next/font/google";
+import { Orbitron, Inter } from "next/font/google";
 
 const orbitron = Orbitron({
   subsets: ["latin"],
@@ -14,6 +14,11 @@ const orbitron = Orbitron({
   display: "swap",
 });
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Pitch Writer",
@@ -28,13 +33,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${orbitron.variable} ${orbitron.variable} font-sans antialiased bg-[#0B0C1E] text-white`}
+        className={`${orbitron.variable} ${inter.variable} font-sans antialiased bg-[#0B0C1E] text-white`}
       >
         <AuthProvider>
+          <div className="flex flex-col md:flex-row">
             <Sidebar />
-          <div className="flex">
-            <main className="ml-64 p-6 min-h-screen w-full">{children}</main>
+            <main className="md:ml-64 p-4 sm:p-6 min-h-screen w-full">
+              {children}
+            </main>
           </div>
+
+          {/* <div className="flex">
+              <Sidebar />
+              <main className="ml-64 p-6 min-h-screen w-full">{children}</main>
+            </div> */}
           <Toaster />
         </AuthProvider>
       </body>
